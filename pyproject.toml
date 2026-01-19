@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pmkit"
+version = "0.1.0"
+description = "Open-source toolkit for prediction market trading bots"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.24.0",
+    "aiohttp>=3.8.0",
+    "websockets>=11.0",
+    "pandas>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "inquirer>=3.1.0",
+    "py-clob-client>=0.20.0",
+    "eth-account>=0.9.0",
+    "cryptography>=41.0.0",
+]
+
+[project.optional-dependencies]
+web3 = ["web3>=6.0.0"]
+
+[tool.setuptools]
+packages = ["pmkit", "pmkit.bot", "pmkit.config", "pmkit.data", "pmkit.data.binance", "pmkit.exchanges", "pmkit.exchanges.polymarket", "pmkit.exchanges.kalshi", "pmkit.exchanges.predictfun", "pmkit.log", "pmkit.prompts", "pmkit.websocket"]
+
+[tool.setuptools.package-dir]
+pmkit = "."
